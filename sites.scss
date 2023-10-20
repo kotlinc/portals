@@ -1,0 +1,87 @@
+$text: #f2f2f2;
+$a: #2fa0fb;
+$bg: #1F2227;
+$add: #61CE81;
+$hover: #DCD693;
+$remove: #D6435E;
+$visited: #D6654E;
+$button-size: 4vw;
+
+@mixin control ($bg-colour: $hover, $colour: $bg, $font-size: 1rem, $font-weight: 800, $radius: 50%) {
+  background-color: $bg-colour;
+  color: $colour;
+  font-weight: $font-weight;
+  font-size: $font-size;
+  width: $button-size;
+  height: $button-size;
+  border: none;
+  border-radius: $radius;
+  margin-bottom: 1vw;
+  margin-right: 1vw;
+  transition-duration: 1s;
+}
+
+ul {
+  overflow-y: scroll;
+}
+
+li {
+  list-style: none;
+}
+
+h2, b, a, p {
+  font-family: system-ui, sans-serif;
+  color: $text;
+}
+
+a {
+  color: $a;
+  text-decoration: none;
+  transition-duration: 0.5s;
+}
+
+a:visited {
+  color: $visited;
+}
+
+body {
+  background-color: $bg;
+}
+
+#controls {
+  position: absolute;
+  bottom: 0;
+}
+
+#add {
+  @include control($add, $bg, 2vw)
+}
+
+#remove {
+  @include control($remove, $bg, 2vw)
+}
+
+a:hover {
+  transition-duration: 0.5s;
+  color: $hover;
+}
+
+#add:hover {
+  background: none;
+  border-style: solid;
+  border-width: 0.5vw;
+  border-color: $add;
+  color: $add;
+  transition-duration: 1s;
+  box-shadow: 5px 0px 50px 0px $add;
+}
+
+#remove:hover {
+  background: none;
+  border-style: solid;
+  border-width: 0.5vw;
+  border-color: $remove;
+  color: $remove;
+  transition-duration: 1s;
+  box-shadow: 5px 0px 50px 0px $remove;
+}

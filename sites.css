@@ -1,0 +1,86 @@
+ul {
+  overflow-y: scroll;
+}
+
+li {
+  list-style: none;
+}
+
+h2, b, a, p {
+  font-family: system-ui, sans-serif;
+  color: #f2f2f2;
+}
+
+a {
+  color: #2fa0fb;
+  text-decoration: none;
+  transition-duration: 0.5s;
+}
+
+a:visited {
+  color: #D6654E;
+}
+
+body {
+  background-color: #1F2227;
+}
+
+#controls {
+  position: absolute;
+  bottom: 0;
+}
+
+#add {
+  background-color: #61CE81;
+  color: #1F2227;
+  font-weight: 800;
+  font-size: 2vw;
+  width: 4vw;
+  height: 4vw;
+  border: none;
+  border-radius: 50%;
+  margin-bottom: 1vw;
+  margin-right: 1vw;
+  transition-duration: 1s;
+}
+
+#remove {
+  background-color: #D6435E;
+  color: #1F2227;
+  font-weight: 800;
+  font-size: 2vw;
+  width: 4vw;
+  height: 4vw;
+  border: none;
+  border-radius: 50%;
+  margin-bottom: 1vw;
+  margin-right: 1vw;
+  transition-duration: 1s;
+}
+
+a:hover {
+  transition-duration: 0.5s;
+  color: #DCD693;
+}
+
+#add:hover {
+  background: none;
+  border-style: solid;
+  border-width: 0.5vw;
+  border-color: #61CE81;
+  color: #61CE81;
+  transition-duration: 1s;
+  box-shadow: 5px 0px 50px 0px #61CE81;
+}
+
+#remove:hover {
+  background: none;
+  border-style: solid;
+  border-width: 0.5vw;
+  border-color: #D6435E;
+  color: #D6435E;
+  transition-duration: 1s;
+  box-shadow: 5px 0px 50px 0px #D6435E;
+}
+
+/*# sourceMappingURL=sites.css.map */
