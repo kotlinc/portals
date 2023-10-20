@@ -2,16 +2,22 @@
 
 if [[ $1 = '-m' ]]; then
   node compiler.js $2 $3
-  uglifyjs $3 -c -o $3
+  uglifyjs $3 -m -o $3
 elif [[ $1 = '--minify' ]]; then
-  uglifyjs $2 -c -o $3
+  uglifyjs $2 -m -o $3
 elif [[ $1 = '--mess' ]]; then
   node compiler.js $2 $3
+elif [[ $1 = '-e' ]]; then
+  touch tmp.js
+  echo $2 > tmp.js
+  node compiler.js tmp.js $3
+  rm tmp.js
 elif [[ $1 = '-h' ]]; then
-  echo -e "Usage: jsmess [option] [input file] [output file]"
-  echo "Options"
+  echo -e "Usage: ./jsmess [option] [input file] [output file]"
+  echo "Options:"
   echo "  > -m : mess up js and minify js with ulgilfyjs and then save the result to specified output file"
   echo "    > --mess : mess up js and then save the result to specified output file"
   echo "    > --minify : minify js with uglifyjs and then save the result to specified output file"
+  echo "  > -e : mess up js and minify js with ulgilfyjs and then save the result to specified output file but you give one js statement"
   echo "  > -h : help"
 fi
