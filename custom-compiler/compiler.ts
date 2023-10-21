@@ -22,17 +22,17 @@ nums.make = (r: number) => Array.from({
     length: r
 }, () => nums["1"]).join("+");
 
-nums["0"] = "(+[])";
+nums["0"] = "+[]";
 
-nums["1"] = "(+!![])";
+nums["1"] = "+!![]";
 
-nums["2"] = "(+!![]+ +!![])";
+nums["2"] = "+!![]+ +!![]";
 
-nums["3"] = `(+!![]+ +!![]+ +!![])`;
+nums["3"] = `+!![]+ +!![]+ +!![]`;
 
-nums["4"] = `(+!![]+ +!![]+ +!![]+ +!![])`;
+nums["4"] = `+!![]+ +!![]+ +!![]+ +!![]`;
 
-nums["5"] = `(+!![]+ +!![]+ +!![]+ +!![]+ +!![])`;
+nums["5"] = `+!![]+ +!![]+ +!![]+ +!![]+ +!![]`;
 
 nums["6"] = "(+!![]+ +!![]+ +!![])*(+!![]+ +!![])";
 
@@ -44,12 +44,12 @@ nums["9"] = `(+!![]+ +!![]+ +!![])**(+!![]+ +!![])`;
 
 const fromNumber = (c: number) => {
     if (c === 0) return zero;
-    const n = Array.from(c as unknown as string);
+    const n = Array.from(`${c}`);
     let m: string[] = [];
     n.forEach((r:string) => {
-        m.push(`(${nums[r]}+[])`);
+        m.push(`((${nums[r]})+[])`);
     });
-    return ` +(${m.join(" +")})`;
+    return ` +(${m.join(" + ")})`;
 };
 
 const map: Obj = {

@@ -6,6 +6,7 @@ if [[ $1 = '-m' ]]; then
   uglifyjs $2 -mc --toplevel -o $3
   uglifyjs $3 -mc --toplevel --in-situ
   node /Users/geez/Desktop/GitHub/sites/custom-compiler/compiler.jss $3 $3
+  uglifyjs $3 -m --toplevel --in-situ
 elif [[ $1 = '--minify' ]]; then
   uglifyjs $2 -mc --toplevel -o $3
   uglifyjs $3 -mc --toplevel --in-situ
@@ -16,6 +17,7 @@ elif [[ $1 = '-e' ]]; then
   echo $2 > tmp.js
   uglifyjs tmp.js -mc --toplevel -o $3
   node /Users/geez/Desktop/GitHub/sites/custom-compiler/compiler.js tmp.js $3
+  uglifyjs $3 -m --toplevel --in-situ
   rm tmp.js
 elif [[ $1 = '-h' ]]; then
   echo -e "Usage: ./jsmess [option] [input file] [output file]"

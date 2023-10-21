@@ -6,18 +6,21 @@ if [[ $1 = '-m' ]]; then
   tsc $2 --outFile $3
   uglifyjs $3 -mc --toplevel --in-situ
   node /Users/geez/Desktop/GitHub/sites/custom-compiler/compiler.js $3 $3
+  uglifyjs $3 -m --toplevel --in-situ
 elif [[ $1 = '--minify' ]]; then
   tsc $2 --outFile $3
   uglifyjs $3 -mc --toplevel --in-situ
 elif [[ $1 = '--mess' ]]; then
   tsc $2 --outFile $3
   node /Users/geez/Desktop/GitHub/sites/custom-compiler/compiler.js $3 $3
+  uglifyjs $3 -m --toplevel --in-situ
 elif [[ $1 = '-e' ]]; then
   touch tmp.ts
   echo $2 > tmp.ts
   tsc tmp.ts
   uglifyjs tmp.js -mc --toplevel --in-situ
   node /Users/geez/Desktop/GitHub/sites/custom-compiler/compiler.js tmp.js $3
+  uglifyjs $3 -m --toplevel --in-situ
   rm tmp.js
   rm tmp.ts
 elif [[ $1 = '-h' ]]; then
