@@ -14,8 +14,7 @@ elif [[ $1 = '--mess' ]]; then
 elif [[ $1 = '-e' ]]; then
   touch tmp.js
   echo $2 > tmp.js
-  uglifyjs tmp.js -mc --toplevel -o tmp.js
-  uglifyjs $3 -mc --toplevel --in-situ
+  uglifyjs tmp.js -mc --toplevel -o $3
   node /Users/geez/Desktop/GitHub/sites/custom-compiler/compiler.js tmp.js $3
   rm tmp.js
 elif [[ $1 = '-h' ]]; then
