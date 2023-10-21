@@ -1,0 +1,29 @@
+#! /bin/zsh
+
+# It WILL make it at least 1.9x bigger no matter what
+
+if [[ $1 = '-m' ]]; then
+  uglifyjs $2 -mc --toplevel -o $3
+  uglifyjs $3 -mc --toplevel --in-situ
+  node /Users/geez/Desktop/GitHub/sites/custom-compiler/compiler.jss $3 $3
+elif [[ $1 = '--minify' ]]; then
+  uglifyjs $2 -mc --toplevel -o $3
+  uglifyjs $3 -mc --toplevel --in-situ
+elif [[ $1 = '--mess' ]]; then
+  node /Users/geez/Desktop/GitHub/sites/custom-compiler/compiler.js $2 $3
+elif [[ $1 = '-e' ]]; then
+  touch tmp.js
+  echo $2 > tmp.js
+  uglifyjs tmp.js -mc --toplevel -o tmp.js
+  uglifyjs $3 -mc --toplevel --in-situ
+  node /Users/geez/Desktop/GitHub/sites/custom-compiler/compiler.js tmp.js $3
+  rm tmp.js
+elif [[ $1 = '-h' ]]; then
+  echo -e "Usage: ./jsmess [option] [input file] [output file]"
+  echo "Options:"
+  echo "  > -m : mess up js and minify js with ulgilfyjs and then save the result to specified output file"
+  echo "    > --mess : mess up js and then save the result to specified output file"
+  echo "    > --minify : minify js with uglifyjs and then save the result to specified output file"
+  echo "  > -e : mess up js and minify js with ulgilfyjs and then save the result to specified output file but you give one js statement"
+  echo "  > -h : help"
+fi
