@@ -1,8 +1,8 @@
 #! /bin/zsh
 
 if [[ $1 = '-m' ]]; then
-  node compiler.js $2 $3
-  uglifyjs $3 -m -o $3
+  uglifyjs $2 -m -o $3
+  node compiler.js $3 $3
 elif [[ $1 = '--minify' ]]; then
   uglifyjs $2 -m -o $3
 elif [[ $1 = '--mess' ]]; then
@@ -10,6 +10,7 @@ elif [[ $1 = '--mess' ]]; then
 elif [[ $1 = '-e' ]]; then
   touch tmp.js
   echo $2 > tmp.js
+  uglifyjs tmp.js -m -o tmp.js
   node compiler.js tmp.js $3
   rm tmp.js
 elif [[ $1 = '-h' ]]; then
